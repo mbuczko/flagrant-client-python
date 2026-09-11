@@ -8,12 +8,17 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "grpcio>=1.83.0",
     "httpx>=0.28.1",
+    "protobuf>=7.36.0",
     "pydantic>=2.13.4",
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/flagrant"]
+
+[tool.ruff]
+extend-exclude = ["src/flagrant/proto/*_pb2.py", "src/flagrant/proto/*_pb2_grpc.py"]
 
 [build-system]
 requires = ["hatchling"]
@@ -21,5 +26,6 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    "grpcio-tools>=1.83.0",
     "ipython>=9.16.1",
 ]

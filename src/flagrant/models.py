@@ -55,6 +55,7 @@ class Feature(BaseModel):
     feature_id: int
     name: str
     value: FeatureValue
+    is_enabled: bool
 
     @field_validator("value", mode="before")
     @classmethod
