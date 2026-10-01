@@ -9,7 +9,7 @@ from flagrant.transport import Transport, TransientError
 DefaultFlagHandler = Callable[[str, str], list[Feature] | None]
 
 @dataclass(frozen=True)
-class FlagsmithOpts:
+class FlagrantOpts:
     cache_ttl: float | None = None
     cache_size: int | None = None
 
@@ -21,7 +21,7 @@ class FlagrantClient:
         transport: Transport,
         *,
         default_handler: DefaultFlagHandler | None = None,
-        opts: FlagsmithOpts = FlagsmithOpts()
+        opts: FlagrantOpts = FlagrantOpts()
     ) -> None:
         self.project = project
         self.transport = transport

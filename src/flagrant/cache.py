@@ -28,8 +28,10 @@ class LRUCache(Generic[K, V]):
             return None
 
         timestamp, value = entry
+
         if self.ttl is not None and time.monotonic() - timestamp > self.ttl:
             return None
+
         self._data.move_to_end(key)
         return value
 
