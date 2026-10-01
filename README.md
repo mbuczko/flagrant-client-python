@@ -21,7 +21,7 @@ This split lets `FlagrantClient.get_features` react differently depending on whe
 
 ## Caching and fallback
 
-`FlagrantClient` optionally wraps fetches in an `LRUCache` (per `(environment, identity)` key), configured via `FlagsmithOpts(cache_size=..., cache_ttl=...)`. On a `TransientError`, the client tries a stale cache entry before falling back to a user-supplied `default_handler`, and only re-raises if neither is available.
+`FlagrantClient` optionally wraps fetches in an `LRUCache` (per `(environment, identity)` key), configured via `FlagrantOpts(cache_size=..., cache_ttl=...)`. On a `TransientError`, the client tries a stale cache entry before falling back to a user-supplied `default_handler`, and only re-raises if neither is available.
 
 ## Testing in IPython
 
